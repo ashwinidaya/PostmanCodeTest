@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "fa5e8f4b-b0dc-47c8-a428-62320e227b07",
+		"name": "End to End DB operation",
+		"description": "Adding New data to my DB\n\nVerifying data added successfully\n\nUpdating data to DB\n\nVerifying data updated successfully\n\nDeleteing Data\n\nVerifying data deleted successfully",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21432485"
+	},
+	"item": [
+		{
+			"name": "Adding Record to DB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"****This is code****\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":117,\r\n    \"title\":\"Testing222\",\r\n    \"author\":\"Testing333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify data added successfully",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"***Start creating Request***\")\r",
+							"var data1=111\r",
+							"if(data1%2==0)\r",
+							"{\r",
+							"   console.log(\"***This is Even Number***\") \r",
+							"}\r",
+							"else\r",
+							"{\r",
+							"   console.log(\"***This is odd Number***\") \r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code- Get request\"]=responseCode.code==200;\r",
+							"tests[\"Body matches string\"]=responseBody.has(\"typicode\")\r",
+							"\r",
+							"// for(i=1;i<6;i++)\r",
+							"// {\r",
+							"//     console.log(\"i value=\",i)\r",
+							"// }\r",
+							"\r",
+							"i=1;\r",
+							"while(i<=10)\r",
+							"{\r",
+							"    console.log(\"while loop I value=\",i);\r",
+							"    i++\r",
+							"}\r",
+							"\r",
+							"//table of 7\r",
+							"input=7\r",
+							"console.log(\"Table of 7\");\r",
+							"for (i=1;i<11;i++)\r",
+							"{\r",
+							"    console.log(input*i)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/posts/111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"111"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
